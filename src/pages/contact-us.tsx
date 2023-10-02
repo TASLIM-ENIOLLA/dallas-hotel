@@ -34,7 +34,7 @@ export default function Page() {
 									<div className="col-span-2">
 										<div className="space-y-3">
 											<div className="text-lg capitalize font-medium">write message</div>
-											<textarea name="message" rows="7" className="block resize-none w-full border border-gray-300 p-4"></textarea>
+											<textarea name="message" rows={7} className="block resize-none w-full border border-gray-300 p-4"></textarea>
 										</div>
 									</div>
 									<div className="col-span-2">
