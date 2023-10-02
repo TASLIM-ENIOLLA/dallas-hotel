@@ -48,8 +48,8 @@ export default function Page() {
 						<div className="md:w-5/12">
 							<iframe
 								loading="lazy"
-								allowfullscreen=""
-								referrerpolicy="no-referrer-when-downgrade"
+								allowFullScreen={true}
+								referrerPolicy="no-referrer-when-downgrade"
 								className="w-full h-full shadow-xl border rounded-xl"
 								style={{ objectFit: "cover", objectPosition: "center" }}
 								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.04348884433327!2d5.67954112142896!3d5.898281607641612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040e31a53d481b5%3A0xec37b21306a676fb!2sDallas%20Grand%20Beach%20Hotel%20%26%20Resort!5e0!3m2!1sen!2sng!4v1695851774763!5m2!1sen!2sng"
