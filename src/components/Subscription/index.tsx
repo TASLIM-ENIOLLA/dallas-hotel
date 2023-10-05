@@ -10,7 +10,7 @@ export default function Component() {
 							subscribe to our newsletter and promotions
 						</div>
 						<div className="text-base md:text-xl text-center font-normal text-gray-500">
-							Don{"'"}t wanna miss something? Subscribe right now and get the special discount and monthly newsletter
+							Don&apos;t wanna miss something? Subscribe right now and get the special discount and monthly newsletter
 						</div>
 						<div>
 							<NewsletterInput />

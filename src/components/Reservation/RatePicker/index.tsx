@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Component({ value, onRateChange }: RatePickerPropType) {
+export default function Component({ name, value, onRateChange }: RatePickerPropType) {
 	const [ rate, setRate ] = useState <string> (value || "RT_REGLR");
 	const [ rates, setRates ] = useState <RatesType> ([]);
 
@@ -18,9 +18,10 @@ export default function Component({ value, onRateChange }: RatePickerPropType) {
 
 	return (
 		<select
+			name={name}
 			value={rate}
 			onChange={({ target: { value } }) => setRate(value)}
-			className="block w-full p-0 bg-transparent m-0 font-medium capitalize text-lg border-none"
+			className="block w-full py-3 bg-transparent m-0 font-medium capitalize text-lg border-b"
 		>
 		{rates.map(({ code, name }: RateType, index: number) => (
 			<option key={code} value={code}>{name}</option>
@@ -32,6 +33,7 @@ export default function Component({ value, onRateChange }: RatePickerPropType) {
 type RatesType = RateType [] | any [];
 
 type RateType = {
+	name: string,
 	code: string,
 	name: string,
 }

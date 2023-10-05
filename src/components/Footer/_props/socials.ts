@@ -6,23 +6,28 @@ import Youtube from "../_icons/youtube.svg";
 export const socials: SocialType [] = [
 	{
 		name: "facebook",
-		icon: Facebook
+		icon: Facebook,
+		href: "https://www.facebook.com/dallasgrandbeachhotel/"
 	},
 	{
 		name: "instagram",
-		icon: Instagram
+		icon: Instagram,
+		href: "https://www.instagram.com/dallasgrandbeach/"
 	},
 	{
 		name: "X (Twitter)",
-		icon: TwitterX
+		icon: TwitterX,
+		href: ""
 	},
 	{
 		name: "youtube",
-		icon: Youtube
+		icon: Youtube,
+		href: ""
 	},
 ]
 
 export type SocialType = {
 	name: string,
-	icon: any
+	icon: any,
+	href: string
 }

@@ -1,13 +1,40 @@
 import Link from "next/link";
+import { useState, useMemo, useEffect, Fragment } from "react";
 
-import room_101 from "./_images/room-101.jpg";
-import room_102 from "./_images/room-101.jpg";
-import room_103 from "./_images/room-101.jpg";
-
-import RoomCard from "./RoomCard";
+import RoomCard, { RoomCardType } from "./RoomCard";
 
 export default function Component() {
-	const rooms: object [] = [room_101, room_102, room_103];
+	const [rooms, setRooms] = useState([]);
+
+	useEffect(() => {
+		fetch("/api/admin/dashboard/rooms")
+		.then((response) => response.json())
+		.then(({ data, error }: { data: any, error: any }) => {
+			if(data) {
+				setRooms(data);
+			}
+		})
+	}, []);
+
+	const content = useMemo(() => {
+		if(rooms.length) return rooms.map((props: RoomCardType, index: number) => (
+			<Fragment key={index}>
+				<RoomCard {...props} />
+			</Fragment>
+		));
+		else return (
+			<div className="col-span-1 sm:col-span-2 lg:col-span-3 3xl:col-span-4">
+				<div className="text-center space-y-5">
+					<div className="inline-flex bg-gray-100 justify-center items-center w-[100px] h-[100px] rounded-lg">
+						<span className="animate-spin">
+							<span className="material-icons text-gray-600 text-5xl">cached</span>
+						</span>
+					</div>
+					<div className="text-semibold text-gray-600 text-lg md:text-xl">Loading rooms...</div>
+				</div>
+			</div>
+		);
+	}, [rooms]);
 
 	return (
 		<section className="py-20">
@@ -24,10 +51,8 @@ export default function Component() {
 						</Link>
 					</div>
 				</div>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 sm:gap-20">
-					{rooms.map((image: object, index: number) => (
-						<RoomCard key={index} id={index} image={image} />
-					))}
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-10 sm:gap-20">
+					{content}
 				</div>
 			</div>
 		</section>

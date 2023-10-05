@@ -3,10 +3,11 @@ import jaccuzzi from "./_images/jaccuzzi.jpg";
 import pool from "./_images/pool.jpg";
 import gym from "./_images/gym.jpg";
 
-import FacilityCard, { FacilityCardPropType } from "./FacilityCard";
+import FacilityCard from "./FacilityCard";
+import { facilities, FacilityType } from "./__props/facilities";
 
 export default function Component() {
-	const facilities: object [] = [piano, jaccuzzi, gym];
+	// const facilities: object [] = [piano, jaccuzzi, gym];
 
 	return (
 		<section className="py-20">
@@ -19,8 +20,8 @@ export default function Component() {
 					</div>
 				</div>
 				<div className="flex flex-col space-y-20">
-					{facilities.map((image: object, index: number) => (
-						<FacilityCard key={index} flip={index % 2} image={image} />
+					{facilities.map((props: FacilityType, index: number) => (
+						<FacilityCard key={index} index={index} {...props} />
 					))}
 				</div>
 			</div>

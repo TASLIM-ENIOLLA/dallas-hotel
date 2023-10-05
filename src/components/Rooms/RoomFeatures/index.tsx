@@ -11,7 +11,7 @@ export default function Component() {
 			</div>
 			<div className="flex items-center gap-3 text-gray-500">
 				<span className="material-icons">room_service</span>
-				<span className="font-semibold">483</span>
+				<span className="font-semibold">1</span>
 			</div>
 		</div>
 	);
